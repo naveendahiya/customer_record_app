@@ -1,5 +1,5 @@
 {
-  "name": "task-manager",
+  "name": "customer_record-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,9 +7,6 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js"
   },
-  "scripts": {
-    "start": "node src/index.js"
-    },
   "keywords": [],
   "author": "",
   "license": "ISC",
