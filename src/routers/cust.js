@@ -3,7 +3,7 @@ const Cust = require('../models/cust')
 const router = new express.Router()
 const auth=require('../middleware/auth')
 
-router.post('/custs',auth, async (req, res) => {
+router.post('/custs', async (req, res) => {
   //  const Cust = new Cust(req.body)
 
   //cannot create any Cust without loggin in
@@ -21,7 +21,7 @@ router.post('/custs',auth, async (req, res) => {
 })
 
 //fetches customers for a specific seller
-router.get('/custs',auth, async (req, res) => {
+router.get('/custs', async (req, res) => {
     try {
         //const Custs = await Cust.find({owner:req.user._id})
         await req.user.populate('customers').execPopulate()
@@ -31,7 +31,7 @@ router.get('/custs',auth, async (req, res) => {
     }
 })
 
-router.get('/custs/:id',auth, async (req, res) => {
+router.get('/custs/:id', async (req, res) => {
    // const _id = req.params.id
 
     try {
@@ -51,7 +51,7 @@ router.get('/custs/:id',auth, async (req, res) => {
 
 //add customer transaction details
 
-router.post('/custs/:id',auth , async (req,res)=>
+router.post('/custs/:id' , async (req,res)=>
 {
     try
     {
@@ -73,7 +73,7 @@ router.post('/custs/:id',auth , async (req,res)=>
 
 //calculate total
 
-router.get('/custs/total/:id',auth,async(req,res)=>
+router.get('/custs/total/:id',async(req,res)=>
 {
     //const total=sum of price * quantity
     try
@@ -101,7 +101,7 @@ router.get('/custs/total/:id',auth,async(req,res)=>
 
 })
 
-router.delete('/custs/:id',auth, async (req, res) => {
+router.delete('/custs/:id', async (req, res) => {
     try {
         const cust = await Cust.findOneAndDelete({_id:req.params.id,seller:req.user._id})
 
